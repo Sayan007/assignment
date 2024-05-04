@@ -1,27 +1,11 @@
-# AssignmentApp
+# Assignment
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.6.
+## Docker Config
 
-## Development server
-
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+`FROM node:20-alpine` Setting, that defines the base Docker image. Using node 20 apine, because I am using Node v20.12.2 LTS.
+`WORKDIR /usr/local/app` Setting, that defines the default application directory. The defined directory is created if it does not exist.
+`COPY . /usr/local/app` Setting, that copies the local application files and directories to the defined directory.
+`RUN npm install` Setting, that installs the Angular application dependencies.
+`FROM nginx:latest` Setting, that defines nginx server base Docker image.
+`COPY --from=node-build /usr/local/app/dist/assignment/browser /usr/share/nginx/html` Setting, that copies built files to ngnix root.
+`EXPOSE 80` Setting, that exposing network port.

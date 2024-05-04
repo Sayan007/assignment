@@ -1,6 +1,11 @@
-FROM node:alpine
-WORKDIR /usr/src/app
-COPY . /usr/src/app
-RUN npm install -g @angular/cli
+FROM node:20-alpine as node-build
+WORKDIR /usr/local/app
+COPY . /usr/local/app
+#RUN npm install -g @angular/cli
 RUN npm install
-CMD ["ng", "serve", "--host", "0.0.0.0"]
+RUN npm run build
+
+
+FROM nginx:latest
+COPY --from=node-build /usr/local/app/dist/assignment/browser /usr/share/nginx/html
+EXPOSE 80

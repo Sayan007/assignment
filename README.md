@@ -15,3 +15,11 @@
 `COPY --from=node-build /usr/local/app/dist/assignment/browser /usr/share/nginx/html` Setting, that copies built files to ngnix root.
 
 `EXPOSE 80` Setting, that exposing network port.
+
+## Docker Build
+
+`docker build -t assignment .` Command to build docker image
+
+## Docker Run
+
+`docker run -d -p 8080:80 assignment` Command to run a docker image

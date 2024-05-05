@@ -1,21 +1,17 @@
 apiVersion: backstage.io/v1alpha1
 kind: Component
 metadata:
-  name: backstage
+  name: assignment-sc
+  title: Assignment on Angular and Docker for SC
   description: |
-    Backstage is an open-source developer portal that puts the developer experience first.
-  links:
-    - title: Website
-      url: http://backstage.io
-    - title: Documentation
-      url: https://backstage.io/docs
-    - title: Storybook
-      url: https://backstage.io/storybook
-    - title: Discord Chat
-      url: https://discord.com/invite/EBHEGzX
+    Dockerized application of Angular for assignment
   annotations:
     github.com/project-slug: Sayan007/assignment
+  tags:
+    - angular
+    - js
+    - docker
 spec:
-  type: library
-  owner: CNCF
-  lifecycle: experimental
+  type: service
+  owner: Sayan007
+  lifecycle: development

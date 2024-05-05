@@ -1,11 +1,4 @@
 apiVersion: backstage.io/v1alpha1
-kind: User
-metadata:
-  name: Sayan
-spec:
-  profile:
-    displayName: Sayan Saha
-    email: sayansaha08.02.90@gmail.com
 kind: Component
 metadata:
   name: assignment-sc
@@ -20,5 +13,5 @@ metadata:
     - docker
 spec:
   type: service
-  owner: user:Sayan
+  owner: sayansaha08.02.90@gmail.com
   lifecycle: development

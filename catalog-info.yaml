@@ -13,5 +13,5 @@ metadata:
     - docker
 spec:
   type: service
-  owner: Sayan007
+  owner: user:Sayan007
   lifecycle: development

@@ -82,3 +82,24 @@ spec:
 Navigate to <kbd>Create > Register Existing Component</kbd>
 
 Add `https://github.com/Sayan007/assignment/blob/main/catalog-info.yaml` and click <kbd>Analyze</kbd>, then <kbd>Import</kbd> and then <kbd>View Component</kbd>
+
+## Building Your Project as Docker Image
+
+Run following commands
+
+```
+# Freezing the yarn lockfile
+yarn install --frozen-lockfile
+
+# Compiling typescript files and outputs it in dist-types/ in the repo root
+yarn tsc
+
+# Adding the config file before building
+yarn build:backend --config app-config.yaml
+
+# Building a docker image
+docker image build . -f packages/backend/Dockerfile --tag backstage-app
+
+# Running the docker image on 7007 port, as backstage backend runs on 7007 port
+docker run -it -p 7007:7007 backstage
+```
